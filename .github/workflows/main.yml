@@ -1,14 +1,14 @@
-name: CI ZhukovskaIryna_Group
+name: CI ZhukovskaIryna_Z21
 
 on:
   push:
     branches:
       - main
       - master
-      - '**'
+      - "**"
 
 jobs:
-  build:
+  cmake_build:
     name: CMake build
     runs-on: ubuntu-latest
 
@@ -22,3 +22,8 @@ jobs:
       - name: Build project
         run: cmake --build build
 
+      - name: Run program
+        run: ./build/tic_tac_toe
+
+            - name: Show build files
+        run: ls -la build
