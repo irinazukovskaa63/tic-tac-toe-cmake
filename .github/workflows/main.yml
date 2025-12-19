@@ -1,0 +1,26 @@
+name: CI ZhukovskaIryna_Group
+
+on:
+  push:
+    branches:
+      - main
+      - master
+      - '**'
+
+jobs:
+  build:
+    name: CMake build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure CMake
+        run: cmake -S . -B build
+
+      - name: Build project
+        run: cmake --build build
+
+      - name: Run application
+        run: ./build/tic_tac_toe || echo "Program finished"
